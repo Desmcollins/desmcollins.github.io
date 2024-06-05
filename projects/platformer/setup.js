@@ -97,4 +97,5 @@ var collectableList = {
   kennedi: { image: "images/collectables/kennedi-head.png" },
   max: { image: "images/collectables/max-head.png" },
   steve: { image: "images/collectables/steve-head.png" },
+  dezzy:{image:"https://mail.google.com/mail/u/0?ui=2&ik=0e7d7418ef&attid=0.1&permmsgid=msg-f:1800855597182080539&th=18fdec9fd1cfd61b&view=att&disp=inline&realattid=18fdec99aadbd46bde71"},
 };
