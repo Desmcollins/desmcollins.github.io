@@ -6,9 +6,9 @@
 	<script src="jquery.min.js"></script>
 	<style>
 		.box {
-			width: 100px;
-			height: 100px;
-			background-color: hsl(236, 94%, 50%);
+			width: 200px;
+			height: 180px;
+			background-color: hsl(240, 6%, 94%);
 			font-size: 300%;
 			text-align: center;
 			user-select: none;
@@ -16,15 +16,21 @@
 			position: absolute;
 			top: 200px;
 			left: 600px;  /* <--- Change me! */
-			background-image: url("");
+			background-image: url("https://t4.ftcdn.net/jpg/05/58/45/37/240_F_558453788_UiFolBbxI4QENApveDc0ePPJudCGJLWf.jpg");
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+
 		}
+
 		.board{
 			height: 100vh;
 			background-size: cover;
 			background-position: center;
 			background-repeat: no-repeat;
-			background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fstock.adobe.com%2Fsearch%3Fk%3Dblue%2Bbackground&psig=AOvVaw1BGAuETrN_KcKTqxlNQRdF&ust=1718378178500000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCMDbr9rv2IYDFQAAAAAdAAAAABAJ");
-		}
+			background-image: url("https://t4.ftcdn.net/jpg/05/64/74/11/240_F_564741194_CjtDvMtO3zKdgd6Lz8Qphnv7UQ7PBKnR.jpg");
+			
+
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
 
@@ -80,15 +86,27 @@
 			turn it around! 
 			*/
 			function update() {
-				moveBoxTo(newPositionX)
+
 				newPositionX = newPositionX + speed
-				if(newPositionX > boardWidth) {
-					speed = -speed;
-				}
-				if(newPositionX < 0) {
-					speed = -speed;
-				}
+				newPositionY = newPositionY + speed
 				moveBoxTo(newPositionX, newPositionY);
+
+				if(newPositionX > boardWidth) {
+					speedX = -speedX;
+				};
+
+				if(newPositionX <= -50) {
+					speedX = -speedX;
+				}
+
+				if(newPositionY > boardHeigh) {
+					speedY = -speedY;
+				};
+
+				if(newPositionX <= 0) {
+					speedY = -speedY;
+				}
+
 			};
 
 			/* 
@@ -98,14 +116,21 @@
 			*/
 			function handleBoxClick() {
 				newPositionX = 0
-				newPositionY = 
+
 				points = points + 1;
 				changeBoxText(points)
 				speed = speed + 3
-				if( speed > 0)
-				{speed = speed + 3;}
-				else if( speed <= 0) {
-					speed = speed - 3;
+
+				if(speedX > 0)
+				{speedX = speedX + 3;
+			    } else if(speedX <= 0) {
+				speedX = speedX - 3;
+			 }
+
+			    if(speedY > 0) {
+					speedY = speedY + 3;
+				}else if (speedY <= 0){
+					speedY = speedY - 3;
 				}
 
 
