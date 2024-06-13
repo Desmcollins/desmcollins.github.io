@@ -6,19 +6,24 @@
 	<script src="jquery.min.js"></script>
 	<style>
 		.box {
-			width: 70px;
-			height: 70px;
-			background-color: teal;
+			width: 100px;
+			height: 100px;
+			background-color: hsl(236, 94%, 50%);
 			font-size: 300%;
 			text-align: center;
 			user-select: none;
 			display: block;
 			position: absolute;
-			top: 100px;
-			left: 0px;  /* <--- Change me! */
+			top: 200px;
+			left: 600px;  /* <--- Change me! */
+			background-image: url("");
 		}
 		.board{
 			height: 100vh;
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-image: url("https://www.google.com/url?sa=i&url=https%3A%2F%2Fstock.adobe.com%2Fsearch%3Fk%3Dblue%2Bbackground&psig=AOvVaw1BGAuETrN_KcKTqxlNQRdF&ust=1718378178500000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCMDbr9rv2IYDFQAAAAAdAAAAABAJ");
 		}
 	</style>
 	<!-- 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
@@ -62,7 +67,11 @@
 			//////////////////////////////////////////////////////////////////
 			
 			// TODO 2 - Variable declarations 
-			
+			var newPositionX = 0;
+			var points = 1
+			var speed = 10;
+			var newPositionY = 2;
+			var speedY = 10;
 
 			
 			/* 
@@ -71,8 +80,15 @@
 			turn it around! 
 			*/
 			function update() {
-				
-
+				moveBoxTo(newPositionX)
+				newPositionX = newPositionX + speed
+				if(newPositionX > boardWidth) {
+					speed = -speed;
+				}
+				if(newPositionX < 0) {
+					speed = -speed;
+				}
+				moveBoxTo(newPositionX, newPositionY);
 			};
 
 			/* 
@@ -81,7 +97,17 @@
 			the left side of the screen.
 			*/
 			function handleBoxClick() {
-				
+				newPositionX = 0
+				newPositionY = 
+				points = points + 1;
+				changeBoxText(points)
+				speed = speed + 3
+				if( speed > 0)
+				{speed = speed + 3;}
+				else if( speed <= 0) {
+					speed = speed - 3;
+				}
+
 
 
 			};
